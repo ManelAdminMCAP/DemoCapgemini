@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "Init_FCA_Lakehouse_Tables",
+    "description": "Imported from fab"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c217690a-44c4-bf56-467c-5d5e6679d8ba"
+  }
+}

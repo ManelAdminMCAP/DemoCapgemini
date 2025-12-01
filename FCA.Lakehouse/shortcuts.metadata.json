@@ -1,0 +1,38 @@
+[
+  {
+    "name": "reservation-transactions",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "caf29fd6-631e-427c-b907-4a44c852604e",
+        "location": "https://fabriccostanalysis.dfs.core.windows.net",
+        "subpath": "/fca/fca-stellantis-reservation-transactions"
+      }
+    }
+  },
+  {
+    "name": "reservation-details",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "caf29fd6-631e-427c-b907-4a44c852604e",
+        "location": "https://fabriccostanalysis.dfs.core.windows.net",
+        "subpath": "/fca/fca-stellantis-reservation-details"
+      }
+    }
+  },
+  {
+    "name": "focuscost",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "caf29fd6-631e-427c-b907-4a44c852604e",
+        "location": "https://fabriccostanalysis.dfs.core.windows.net",
+        "subpath": "/fca/fca-stellantis"
+      }
+    }
+  }
+]

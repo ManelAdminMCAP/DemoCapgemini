@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Load Quota",
+    "description": "Imported from fab"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "02cfa55f-f2c4-98e3-4f4a-52600a0ed919"
+  }
+}

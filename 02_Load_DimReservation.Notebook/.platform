@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "02_Load_DimReservation",
+    "description": "Imported from fab"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "048ec543-d159-b409-4226-dfe2e5580801"
+  }
+}

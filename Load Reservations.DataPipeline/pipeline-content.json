@@ -1,0 +1,129 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "048ec543-d159-b409-4226-dfe2e5580801",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "fromMonth": {
+              "value": {
+                "value": "@pipeline().parameters.FromMonth",
+                "type": "Expression"
+              },
+              "type": "int"
+            },
+            "toMonth": {
+              "value": {
+                "value": "@pipeline().parameters.ToMonth",
+                "type": "Expression"
+              },
+              "type": "int"
+            }
+          },
+          "sessionTag": "fca"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Dim Reservation",
+        "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "5aaa581c-8864-a34f-4e25-95ec8a8d7008",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "fromMonth": {
+              "value": {
+                "value": "@pipeline().parameters.FromMonth",
+                "type": "Expression"
+              },
+              "type": "int"
+            },
+            "toMonth": {
+              "value": {
+                "value": "@pipeline().parameters.ToMonth",
+                "type": "Expression"
+              },
+              "type": "int"
+            }
+          },
+          "sessionTag": "fca"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Reservation data",
+        "dependsOn": [
+          {
+            "activity": "Dim Reservation",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "2ce557b9-1f0a-aae3-41c5-be1de73d6b29",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "fromMonth": {
+              "value": {
+                "value": "@pipeline().parameters.FromMonth",
+                "type": "Expression"
+              },
+              "type": "int"
+            },
+            "toMonth": {
+              "value": {
+                "value": "@pipeline().parameters.ToMonth",
+                "type": "Expression"
+              },
+              "type": "int"
+            }
+          },
+          "sessionTag": "fca"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Reservation Usage Fabric",
+        "dependsOn": [
+          {
+            "activity": "Reservation data",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ],
+    "parameters": {
+      "FromMonth": {
+        "type": "int",
+        "defaultValue": -6
+      },
+      "ToMonth": {
+        "type": "int",
+        "defaultValue": 0
+      }
+    }
+  }
+}

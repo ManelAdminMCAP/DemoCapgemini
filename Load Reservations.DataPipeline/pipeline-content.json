@@ -31,7 +31,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Dim Reservation",
+        "name": "Dim Reservation usage",
         "dependsOn": []
       },
       {
@@ -67,7 +67,7 @@
         "name": "Reservation data",
         "dependsOn": [
           {
-            "activity": "Dim Reservation",
+            "activity": "Dim Reservation usage",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -118,7 +118,7 @@
     "parameters": {
       "FromMonth": {
         "type": "int",
-        "defaultValue": -6
+        "defaultValue": -5
       },
       "ToMonth": {
         "type": "int",

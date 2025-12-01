@@ -1,58 +1,85 @@
 table resources
+	isHidden
 	lineageTag: 5083cf2c-0215-4d1a-917a-4b72538de465
 	sourceLineageTag: [dbo].[resources]
 
+	measure 'test cap' = sum(fca[ContractedCost])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: df3bbd90-d2d0-422a-95fd-f06268692ea3
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
 	column ResourceId
 		dataType: string
+		isHidden
 		lineageTag: ad29fe60-224a-4e6f-86e1-e7cc4278bc66
 		sourceLineageTag: ResourceId
 		summarizeBy: none
 		sourceColumn: ResourceId
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ResourceName
 		dataType: string
+		isHidden
 		lineageTag: 37c5648a-8687-4e6c-a330-7d6d16af4353
 		sourceLineageTag: ResourceName
 		summarizeBy: none
 		sourceColumn: ResourceName
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ResourceType
 		dataType: string
+		isHidden
 		lineageTag: c0ec5067-da99-40a1-ad54-af3867e1500c
 		sourceLineageTag: ResourceType
 		summarizeBy: none
 		sourceColumn: ResourceType
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ResourceGroupName
 		dataType: string
+		isHidden
 		lineageTag: 50311087-793a-4d3d-858c-373911e4d9ea
 		sourceLineageTag: ResourceGroupName
 		summarizeBy: none
 		sourceColumn: ResourceGroupName
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ServiceCategory
 		dataType: string
+		isHidden
 		lineageTag: 5819cce9-174d-470c-93b2-624d031e4240
 		sourceLineageTag: ServiceCategory
 		summarizeBy: none
 		sourceColumn: ServiceCategory
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ServiceName
 		dataType: string
+		isHidden
 		lineageTag: 19d343f8-82a1-4777-b2c2-93408796a481
 		sourceLineageTag: ServiceName
 		summarizeBy: none
 		sourceColumn: ServiceName
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -70,6 +97,7 @@ table resources
 
 	column ResourceKey
 		dataType: int64
+		isHidden
 		isNullable: false
 		formatString: 0
 		lineageTag: c6138365-f517-4594-abd1-f1505931ef95
@@ -89,6 +117,8 @@ table resources
 			entityName: resources
 			schemaName: dbo
 			expressionSource: DatabaseQuery
+
+	changedProperty = IsHidden
 
 	annotation PBI_ResultType = Table
 

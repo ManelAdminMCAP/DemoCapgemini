@@ -114,7 +114,7 @@ date_df = date_df.createOrReplaceTempView('calendar_temp')
 
 query = """
     SELECT 
-        *
+        top 1000
         ,DAYOFWEEK(date) AS DayOfWeekNum
         ,CASE WHEN ( YEAR(date) = YEAR(CURRENT_DATE()) ) THEN 1 ELSE 0 END  AS IsCurrentYear
         ,CASE WHEN ( YEAR(date) = YEAR(CURRENT_DATE())-1 ) THEN 1 ELSE 0 END  AS IsPreviousYear

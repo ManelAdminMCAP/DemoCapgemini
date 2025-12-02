@@ -128,7 +128,7 @@ def uncompress_zip_to_folder(zip_path, extract_to):
 
 repo_owner = "Pulsweb"
 repo_name = "fabric-toolbox"
-branch = "momani"
+branch = "main"
 folder_prefix = "monitoring/fabric-cost-analysis"
 
 download_folder_as_zip(repo_owner, repo_name, output_zip = "./builtin/src/src.zip", branch = branch, folder_to_extract= f"/{folder_prefix}/src", remove_folder_prefix = f"{folder_prefix}/")

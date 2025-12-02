@@ -36,7 +36,7 @@ table quota_fabric
 
 		changedProperty = DataCategory
 
-	measure 'Quota Used' = SUM(quota_fabric[Usage]) + 0
+	measure 'Quota Used' = SUM(quota_fabric[Usage])
 		formatString: 0
 		lineageTag: 6e3955d5-9e0f-45e0-b2ca-e848551c8cae
 

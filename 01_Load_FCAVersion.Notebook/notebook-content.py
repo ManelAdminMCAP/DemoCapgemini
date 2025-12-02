@@ -47,7 +47,7 @@ import requests
 import json
 
 # Step 1: Fetch the JSON from the public URL
-url = "https://raw.githubusercontent.com/Pulsweb/fabric-toolbox/refs/heads/momani/monitoring/fabric-cost-analysis/data/current_fca_version.json"
+url = "https://raw.githubusercontent.com/Pulsweb/fabric-toolbox/refs/heads/main/monitoring/fabric-cost-analysis/data/current_fca_version.json"
 response = requests.get(url)
 data = response.json()
 

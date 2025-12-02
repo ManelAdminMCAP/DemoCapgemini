@@ -167,16 +167,17 @@
         "type": "ExecutePipeline",
         "typeProperties": {
           "pipeline": {
-            "referenceName": "02cfa55f-f2c4-98e3-4f4a-52600a0ed919",
+            "referenceName": "0a0ed919-5260-4f4a-98e3-f2c402cfa55f",
             "type": "PipelineReference"
           },
-          "parameters": {},
           "waitOnCompletion": true
         },
         "policy": {
           "secureInput": false
         },
         "name": "Load Quotas",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "Load Dimensions",
@@ -190,7 +191,7 @@
         "type": "ExecutePipeline",
         "typeProperties": {
           "pipeline": {
-            "referenceName": "f63c3d23-5fc8-bf92-4780-f1825fb57820",
+            "referenceName": "5fb57820-f182-4780-bf92-5fc8f63c3d23",
             "type": "PipelineReference"
           },
           "parameters": {
@@ -209,6 +210,8 @@
           "secureInput": false
         },
         "name": "Load Reservations",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "Load Dimensions",

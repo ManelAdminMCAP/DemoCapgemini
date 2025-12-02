@@ -73,7 +73,7 @@ print(f"Global Min Date across all tables: {global_min_date.strftime('%Y-%m-%d')
 
 # PARAMETERS CELL ********************
 
-# Parameter for date
+# Parameter
 beginDate = global_min_date.strftime('%Y-%m-%d') #'2023-01-01'
 endDate = '2030-12-31'
 display_data = False
@@ -121,8 +121,8 @@ query = """
         ,CASE WHEN ( YEAR(date) = YEAR(CURRENT_DATE()) AND QUARTER(date) = QUARTER(CURRENT_DATE()) ) THEN 1 ELSE 0 END  AS IsCurrentQuarter
         ,CASE WHEN ( YEAR(date) = YEAR(CURRENT_DATE()) AND MONTH(date) = MONTH(CURRENT_DATE()) ) THEN 1 ELSE 0 END  AS IsCurrentMonth
         ,CASE WHEN ( DATE_FORMAT(date, 'yyyy-MM') = DATE_FORMAT(ADD_MONTHS(CURRENT_DATE(), -1), 'yyyy-MM') ) THEN 1 ELSE 0 END  AS IsPreviousMonth
-        ,CASE WHEN ( date BETWEEN DATE_ADD(CURRENT_DATE(), -14) AND CURRENT_DATE() ) THEN 1 ELSE -1 END  AS IsInLast14Days
-        ,CASE WHEN ( date BETWEEN DATE_ADD(CURRENT_DATE(), -30) AND CURRENT_DATE() ) THEN 1 ELSE -1 END  AS IsInLast30Days
+        ,CASE WHEN ( date BETWEEN DATE_ADD(CURRENT_DATE(), -14) AND CURRENT_DATE() ) THEN 1 ELSE 0 END  AS IsInLast14Days
+        ,CASE WHEN ( date BETWEEN DATE_ADD(CURRENT_DATE(), -30) AND CURRENT_DATE() ) THEN 1 ELSE 0 END  AS IsInLast30Days
     FROM calendar_temp
 """
 
@@ -154,18 +154,6 @@ if display_data:
 df_dataDate = spark.sql(f"select explode(sequence(to_date('{beginDate}'), to_date('{global_max_date.strftime('%Y-%m-%d')}'), interval 1 day)) as date")
 df_dataDate = df_dataDate.select(date_format("date","yyyyMMdd").alias("DateKey").cast("int"),lit(1).alias("hasCostData"))
 final_date_df = final_date_df.join(df_dataDate,"DateKey", "leftouter").fillna({"hasCostData": 0})
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-# Write the DataFrame to the lakehouse
-#final_date_df.write.mode("overwrite").option("mergeSchema", "true").format("delta").saveAsTable("calendar")
 
 # METADATA ********************
 

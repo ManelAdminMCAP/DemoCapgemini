@@ -40,7 +40,7 @@ spark.conf.set("spark.databricks.delta.schema.autoMerge.enabled","true") # neede
 # CELL ********************
 
 # URL of the CSV file
-csv_url = "https://raw.githubusercontent.com/Pulsweb/fabric-toolbox/refs/heads/momani/monitoring/fabric-cost-analysis/data/Meters.csv"
+csv_url = "https://raw.githubusercontent.com/Pulsweb/fabric-toolbox/refs/heads/main/monitoring/fabric-cost-analysis/data/Meters.csv"
 
 # Define the target path in the Lakehouse
 lakehouse_path = "/lakehouse/default/Files/Data/Meters"
